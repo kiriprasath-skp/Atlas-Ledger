@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlas Ledger — Country Lookup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="kicker">A field guide to places</p>
+    <h1>Atlas Ledger</h1>
+    <p class="sub">Type a country name to pull its entry — capital, population, region, and currency, recorded like a surveyor's notebook.</p>
+  </header>
+
+  <div class="search-row">
+    <input id="q" type="text" placeholder="Search a country… try “Japan” or “Peru”" autocomplete="off">
+    <ul id="suggestions"></ul>
+  </div>
+
+  <div class="controls-row">
+    <select id="regionFilter">
+      <option value="">All regions</option>
+      <option value="Africa">Africa</option>
+      <option value="Asia">Asia</option>
+      <option value="Europe">Europe</option>
+      <option value="North America">North America</option>
+      <option value="South America">South America</option>
+      <option value="Oceania">Oceania</option>
+    </select>
+    <button class="btn" id="surpriseBtn" type="button">Surprise me</button>
+  </div>
+
+  <div class="empty show" id="emptyState">No entry open yet. Search above to pull a country's record.</div>
+  <div class="no-match" id="noMatch">No country matches that name in this ledger. Try a different spelling.</div>
+
+  <div class="card" id="card">
+    <div class="card-top">
+      <div class="flag" id="flagEmoji"></div>
+      <div>
+        <h2 id="cName">—</h2>
+        <p class="official" id="cOfficial">—</p>
+      </div>
+      <button class="star-btn" id="starBtn" type="button" title="Save to favorites" aria-label="Save to favorites">☆</button>
+    </div>
+    <dl class="ledger">
+      <dt>Capital</dt><dd id="cCapital">—</dd>
+      <div class="row-rule"></div>
+      <dt>Region</dt><dd id="cRegion">—</dd>
+      <div class="row-rule"></div>
+      <dt>Population</dt><dd id="cPopulation">—</dd>
+      <div class="row-rule"></div>
+      <dt>Currency</dt><dd id="cCurrency">—</dd>
+    </dl>
+  </div>
+
+  <div class="favorites" id="favoritesPanel" style="display:none;">
+    <h3>Saved entries</h3>
+    <div class="fav-list" id="favList"></div>
+  </div>
+
+  <footer>Figures are approximate reference values, for general orientation rather than official statistics.</footer>
+</div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
